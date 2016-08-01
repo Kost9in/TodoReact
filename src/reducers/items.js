@@ -1,19 +1,18 @@
-const saveToStorage = (items) => {
-  localStorage.items = JSON.stringify(items);
-  return items;
+import { ADD_ITEM, SAVE_ITEM, DELETE_ITEMS } from '../constants/actions';
+
+const getDefaultState = () => {
+  return (localStorage.items) ? JSON.parse(localStorage.items) : ['Test item 1', 'Test item 2', 'Test item 3'];
 }
 
-export default (state = [], action) => {
+export default (state = getDefaultState(), action) => {
   switch (action.type) {
-    case 'SET_ITEMS':
-      return [...action.items];
-    case 'ADD_ITEM':
-      return saveToStorage([...state, action.item]);
-    case 'SAVE_ITEM':
+    case ADD_ITEM:
+      return [...state, action.item];
+    case SAVE_ITEM:
       state[action.idx] = action.item;
-      return saveToStorage([...state]);
-    case 'DELETE_ITEMS':
-      return saveToStorage(state.filter((item, idx) => action.items.indexOf(idx) === -1));
+      return [...state];
+    case DELETE_ITEMS:
+      return state.filter((item, idx) => action.items.indexOf(idx) === -1);
     default:
       return state;
   }

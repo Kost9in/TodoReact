@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editItem, deleteItems, selectItems } from '../actions'
+import { editItem, deleteItemsAndUnselect as deleteItems } from '../actions'
 
 class TodoActions extends Component {
   constructor(...args) {
     super(...args);
-    this.dispatch = args[0].dispatch;
     this.onEditItem = this.onEditItem.bind(this);
     this.onDeleteItems = this.onDeleteItems.bind(this);
   }
@@ -23,11 +22,10 @@ class TodoActions extends Component {
     );
   }
   onEditItem() {
-    this.dispatch(editItem(this.props.selected[0]));
+    this.props.dispatch(editItem({ idx: this.props.selected[0] }));
   }
   onDeleteItems() {
-    this.dispatch(deleteItems(this.props.selected));
-    this.dispatch(selectItems());
+    this.props.dispatch(deleteItems());
   }
 }
 

@@ -8,8 +8,6 @@ import { setItems } from '../actions'
 class App extends Component {
   constructor(...args) {
     super(...args);
-    this.dispatch = args[0].dispatch;
-    this.dispatch(setItems(this.getItems()));
   }
   render() {
     return (
@@ -21,9 +19,6 @@ class App extends Component {
         <TodoActions/>
       </div>
     );
-  }
-  getItems() {
-    return (localStorage.items) ? JSON.parse(localStorage.items) : ['Test item 1', 'Test item 2', 'Test item 3'];
   }
 }
 
