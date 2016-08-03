@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addItemAndClear as addItem, changeAddItem } from '../actions'
+import { addItemAndClear as addItem, changeAddItem } from '../actions';
 
 class TodoAddForm extends Component {
   constructor(...args) {

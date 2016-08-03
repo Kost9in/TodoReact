@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editItem, deleteItemsAndUnselect as deleteItems } from '../actions'
+import { editItem, deleteItemsAndUnselect as deleteItems } from '../actions';
 
 class TodoActions extends Component {
   constructor(...args) {

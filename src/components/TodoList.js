@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectItems, editItem, saveItemAndClear as saveItem, filterItemsAndUnselect as filterItems } from '../actions'
+import { selectItems, editItem, saveItemAndClear as saveItem, filterItemsAndUnselect as filterItems } from '../actions';
 
 class TodoList extends Component {
   constructor(...args) {
